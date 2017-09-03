@@ -1,0 +1,25 @@
+﻿@*@model IEnumerable<FirstForum.Models.PostModels>*@
+@model IEnumerable<FirstForum.Models.CategoryTopic>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div>
+    @foreach (var item in Model)
+    {
+        <h4>@item.CatName</h4>
+        <br/>
+        if (item.PostModelses != null)
+        {
+            foreach (var items in item.PostModelses)
+            {
+                @items.PosterName
+                @items.DateSubmit<br/>
+                <div>@items.Body</div>
+            }
+        }
+    }
+</div>
+
+

@@ -1,0 +1,13 @@
+﻿
+@model FirstForum.Models.PostModels
+
+@{
+    ViewBag.Title = "ViewAnswers";
+}
+
+<h2>@Model.Title</h2>
+@Html.Partial("_Answers",@Model.Answers)
+<p>
+    @Html.ActionLink("Answer The Post", "CreateAnswer","Post", new{Id=Model.Id},null)
+</p>
+

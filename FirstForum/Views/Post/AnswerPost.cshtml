@@ -1,0 +1,56 @@
+﻿@model FirstForum.Models.Answer
+
+@{
+    ViewBag.Title = "Answer Post";
+}
+
+<h2>AnswerPost</h2>
+<h3>@ViewBag.AnswerId</h3>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Answer</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnswerTopic)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AnswerTopic)
+            @Html.ValidationMessageFor(model => model.AnswerTopic)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnswerBody)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AnswerBody)
+            @Html.ValidationMessageFor(model => model.AnswerBody)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnswerSender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AnswerSender)
+            @Html.ValidationMessageFor(model => model.AnswerSender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Id)
+            @Html.ValidationMessageFor(model => model.Id)
+            
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

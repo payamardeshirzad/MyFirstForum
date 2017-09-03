@@ -1,0 +1,44 @@
+﻿@model FirstForum.Models.PostModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PostModels</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Body)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PosterName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PosterName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateSubmit)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateSubmit)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Answer", "ViewAnswers","Post", new { id=Model.Id},null) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

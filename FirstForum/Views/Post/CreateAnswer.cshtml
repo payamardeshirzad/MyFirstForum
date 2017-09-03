@@ -1,0 +1,58 @@
+﻿@model FirstForum.Models.Answer
+
+@{
+    ViewBag.Title = "CreateAnswer";
+}
+
+<h2>CreateAnswer</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Answer</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnswerTopic)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AnswerTopic)
+            @Html.ValidationMessageFor(model => model.AnswerTopic)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnswerBody)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AnswerBody)
+            @Html.ValidationMessageFor(model => model.AnswerBody)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AnswerSender)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AnswerSender)
+            @Html.ValidationMessageFor(model => model.AnswerSender)
+        </div>
+@*        <div class="editor-label">
+            @Html.LabelFor(model => model.PosModelsId)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PosModelsId)
+            @Html.ValidationMessageFor(model => model.PosModelsId)
+        </div>*@
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ViewAnswers")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
